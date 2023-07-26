@@ -6,16 +6,17 @@
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:02:07 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/26 18:29:47 by teojimen         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:27:37 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-int strlen(char *str)
+int	str_len(char *str)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -24,19 +25,19 @@ int strlen(char *str)
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int    i;
-    int    j;
-    
-    i = 0;
-    j = str_len(dest);
-    while(src[i] != '\0')
-    {
-        dest[j] = src[i];
-        j++;
-        i++;
-    }
-    dest[j] = '\0';
-    return (dest);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = str_len(dest);
+	while (src[i] != '\0')
+	{
+		dest[j] = src[i];
+		j++;
+		i++;
+	}
+	dest[j] = '\0';
+	return (dest);
 }
 
 //counter = contar los espacios sin null para despues empezar a contar los NULL
