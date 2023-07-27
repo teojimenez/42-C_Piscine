@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 13:00:11 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/27 10:24:07 by teojimen         ###   ########.fr       */
+/*   Created: 2023/07/27 10:33:29 by teojimen          #+#    #+#             */
+/*   Updated: 2023/07/27 10:41:03 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	putchar(char c)
 {
-	char	*s;
-	char	*t;
-
-	if (!*str && !*to_find)
-		return (str);
-	while (*str != '\0')
-	{
-		if (*to_find == '\0')
-			return (str); 
-		s = str;
-		t = to_find;
-		while (*to_find != '\0' && *s == *t)
-		{
-			s++;
-			t++;
-		}
-		if (*t == '\0')
-			return (str);
-		str++;
-	}
-	return (NULL);
+	write(1, &c, 1);
 }
 
-// int	main(int argc, char *argv[])
-// {
-// 	if (argc == 3)
-// 		printf("%s", ft_strstr(argv[1], argv[2]));
-// 	return (0);
+void	ft_putstr(char *str)
+{
+	while (*str != '\0')
+	{
+		putchar(*str);
+		str++;
+	}
+}
+
+//int	main(void)
+//{
+//	char str[] = "HOLA me llamo teo";
+//	ft_putstr(str);
+//	return (0);
 //}

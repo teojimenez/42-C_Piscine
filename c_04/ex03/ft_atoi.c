@@ -1,50 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 09:42:29 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/27 09:50:07 by teojimen         ###   ########.fr       */
+/*   Created: 2023/07/27 12:42:07 by teojimen          #+#    #+#             */
+/*   Updated: 2023/07/27 14:22:16 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <string.h>
+// #include <stdio.h>
 
-int	str_len(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
+	int	nb;
+	int	sig;
 
+	sig = 1;
 	i = 0;
-	while (str[i] != '\0')
+	nb = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	i;
-	int				j;
-
-	i = 0;
-	j = str_len(dest);
-	while (src[i] != '\0' && i < nb)
+	while (str[i] == '-' || str[i] == '+')
 	{
-		dest[j] = src[i];
+		if (str[i] == '-')
+			sig = sig * -1;
 		i++;
-		j++;
 	}
-	dest[j] = '\0';
-	return (dest);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * sig);
 }
 
 // int main()
 // {
-//     char src[] = "";
-//     char dest[20] = "hola";
-//     printf("%s", strncat(dest, src, 4));
-//     printf("%s", ft_strncat(dest, src, 4));
+//     char str[] = "     ---0999999-+++12345"; 
+//     printf("%i", ft_atoi(str));
 //     return (0);
 // }
