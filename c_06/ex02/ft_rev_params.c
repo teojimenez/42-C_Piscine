@@ -6,7 +6,7 @@
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:20:20 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/27 15:20:25 by teojimen         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:16:39 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,18 @@ void	ft_strprint(char *str)
 		ft_putchar(str[i]);
 		i++;
 	}
+}
+
+int	main(int argc, char *argv[])
+{
+	int	j;
+
+	j = argc - 1;
+	while (j > 0)
+	{
+		ft_strprint(argv[j]);
+		ft_putchar('\n');
+		j--;
+	}
+	return (0);
 }

@@ -5,93 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 14:38:38 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/06 18:54:43 by teojimen         ###   ########.fr       */
+/*   Created: 2023/07/12 21:21:10 by teojimen          #+#    #+#             */
+/*   Updated: 2023/07/27 17:57:41 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdbool.h>
 
-void ft_print_comb2(void);
-void ft_write(char a, char b, char c, char d);
-
-int main(void)
+char	ft_combine(int num1, int num2, char *result)
 {
-    ft_print_comb2();
-    return (0);
+	result[0] = num1 / 10 + '0';
+	result[1] = num1 % 10 + '0';
+	result[2] = ' ';
+	result[3] = num2 / 10 + '0';
+	result[4] = num2 % 10 + '0';
+	return (*result);
 }
 
-void ft_print_comb2(void)
+void	ft_print_comb2(void)
 {
-    char n1;
-    char n2;
-    char n3;
-	char n4;
-	bool p;
+	int		num1;
+	int		num2;
+	char	combine[5];
 
-	p = false;
-    n1 = '0';
-    while(n1 <= '9')
-    {
-        if (p)
+	num1 = 0;
+	while (num1 <= 98)
+	{
+		num2 = num1 + 1;
+		while (num2 <= 99)
 		{
-  			n2 = n1 + 1;
+			ft_combine(num1, num2, combine);
+			write(1, &combine, 5);
+			if (num1 < 98 || num2 < 99)
+				write(1, ", ", 2);
+			num2++;
 		}
-		else
-		{
-  			n2 = '0';
-		}
-		while(n2 <= '8')
-        {
-			if (p)
-			{
-  				n3 = '0';
-			}	
-			else
-			{
-  				n3 = '0';
-			}
-            while(n3 <= '9')
-            {
-                if (n2 != 0)
-				{
-  					n4 = n3 + 1;
-				}
-				else
-				{
-					n4 = 0;
-				}
-				while(n4 <= '9')
-				{
-					p = true;
-					ft_write(n1, n2, n3, n4);
-					n4++;				
-				}
-				n4 = '0';
-                n3++;
-            }
-            n3 = '0';
-            n2++;
-        }
-        n2 = '0';
-        n1++;
-    }
+		num1++;
+	}
 }
 
-void ft_write(char a, char b, char c, char d)
-{
-    char coma;
-    char vacio;
-
-    coma = ',';
-    vacio = ' ';
-    write(1, &a, 1);
-    write(1, &b, 1);
-	write(1, &vacio, 1);
-    write(1, &c, 1);
-	write(1, &d, 1);
-    write(1, &coma, 1);
-    write(1, &vacio, 1);
-}
-
+//int main() {
+//  ft_print_comb2();
+//  return 0;
+//}

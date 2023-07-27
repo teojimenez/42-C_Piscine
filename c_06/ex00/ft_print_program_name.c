@@ -6,7 +6,7 @@
 /*   By: teojimen <teojimen@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:49:18 by teojimen          #+#    #+#             */
-/*   Updated: 2023/07/27 15:01:52 by teojimen         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:16:22 by teojimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c)
 
 void	ft_strprint(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
