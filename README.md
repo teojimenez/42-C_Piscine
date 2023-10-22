@@ -1,4 +1,4 @@
-# 42Barcelona-Piscine
+## 42-C_Piscine
 <p>Exercises done during the C Piscine in 42 Barcelona</p>
 <p>There are some empty directories, they only contain the subject line</p>
 
